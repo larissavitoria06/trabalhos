@@ -1,0 +1,130 @@
+*{
+    margin: 0;  /* Remove a margem padrão de todos os elementos */
+    padding: 0;  /* Remove o preenchimento (padding) padrão de todos os elementos */
+}
+
+/* Define o fundo da página (cor branca) */
+header {
+    background-color: rgb(255, 255, 255);  /* Define a cor de fundo do corpo da página como branco */
+    width: 100vw;
+}
+
+.container {
+    width: 100%;  
+    background: rgb(0, 0, 0); 
+    display: flex;  
+    justify-content:space-between;    
+    padding: 1vw; 
+    color: white;
+
+    & .div1 {
+        width: 30vw;
+        padding: 1vw;
+
+        & h1{
+            font-size: 1.5vw;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+    }
+
+    & .div2 {
+        width: 25vw;
+
+        & a{
+            text-decoration: none;
+            color: rgb(221, 221, 221);
+            font-size: 0.9vw;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 1.0vw;
+            
+            
+        }
+        
+        & a:hover{
+            text-decoration: none;
+            color: rgb(184, 184, 184);
+            font-size: 0.9vw;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 1.0vw;
+            
+            
+        }
+
+    }
+}
+
+main {
+    width: 100vw;
+    margin-top: 2vw;
+
+
+    & .containerdois{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+            width: 40vw;
+                width: 70vw;
+                height: auto;
+                border-radius: 2vw;
+            }
+        }
+
+        & .texto{
+            width: 40vw;
+           
+           
+            & h1 {
+                font-size: 2 vw;
+                color: black;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+
+
+            & span{
+                font-size: 1vw;
+                color: rgb(133, 133, 133);
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+
+            & button {
+                padding: 0.4vw;
+                border: none;
+                border-radius: 0.1vw;
+                background: black;
+                color: white;
+                font-size: 1vw;
+                margin-top: 1vw;
+            }
+        }
+
+    .containertres {
+        width: 60vw;
+        background: rgb(0, 0, 0);
+        padding: 2vw;
+        border-radius: o.2vw;
+        margin-left: 20vw;
+        margin-top: 3vw;
+        color: white;
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 1vw;
+    }
+
+    .containerquatro{
+        width: 60vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 17vw;
+        margin-top: 2vw;
+        margin-left: 20vw;
+        & .card1, .card2, .card3{
+            padding: 3vw;
+            
+            border: 1px solid black;
+            margin: 1vw;
+            border-radius: 2vw;
+            border-color: rgb(216, 215, 215);
+        }
+    }
