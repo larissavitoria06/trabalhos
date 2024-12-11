@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS  MercadodoSeuZe;
-CREATE DATABASE IF NOT EXISTS MercadodoSeuZe;
-USE MercadodoSeuZe;
+DROP DATABASE IF EXISTS MercadoDoSeuZe;
+CREATE DATABASE IF NOT EXISTS MercadoDoSeuZe;
+USE MercadoDoSeuZe;
 
 CREATE TABLE clientes( 
     cliente_id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -18,12 +18,11 @@ INSERT INTO clientes (nome, cpf, email, telefone) VALUES
 ('Gloria', '55566677788', 'gloria.jesus@email.com', '31944332211'),
 ('Mosés', '55566677789', 'moses.marinho.souza@email.com', '31944332212'); 
 
-
 CREATE TABLE venda(
     venda_id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT,
     data_venda DATE,
-    valor_total FLOAT(10,5) NOT NULL,
+    valor_total DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id)
 );
 
@@ -33,13 +32,13 @@ INSERT INTO venda (cliente_id, data_venda, valor_total) VALUES
 (3, '2023-11-10', 1050.00),
 (4, '2023-11-13', 1700.00),
 (5, '2023-11-15', 1750.00),
-(6, '2023-11-17', 500.00),
+(6, '2023-11-17', 500.00);
 
 CREATE TABLE produto(
     produto_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(252) NOT NULL,
-    descricao VARCHAR(252),
-    preco FLOAT(10,5) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    preco DECIMAL(10,2) NOT NULL,
     quantidade_estoque INT NOT NULL
 );
 
@@ -51,21 +50,20 @@ INSERT INTO produto (nome, descricao, preco, quantidade_estoque) VALUES
 ('Farinha de Trigo Dona Benta', 'Farinha de trigo refinada e enriquecida com ferro e ácido fólico.', 5.00, 60),
 ('Chocolate em Barra Nestlé ao leite (90g)', 'Chocolate ao leite de sabor cremoso e textura irresistível.', 7.50, 200);
 
-
 CREATE TABLE itens_venda(
     id_item INT AUTO_INCREMENT PRIMARY KEY,
     id_venda INT,
     id_produto INT,
     quantidade INT,
-    preco_unitario DECIMAL(10, 2),
+    preco_unitario DECIMAL(10,2),
     FOREIGN KEY (id_venda) REFERENCES venda(venda_id),
-    FOREIGN KEY (produto_id) REFERENCES produto(produto_id)
+    FOREIGN KEY (id_produto) REFERENCES produto(produto_id)
 );
 
-INSERT INTO itens_venda (id_venda, produto_id, quantidade, preco_unitario) VALUES 
-(1, 7, 100, 4.50),
-(2, 8, 50, 6.00),
-(3, 9, 75, 8.50),
-(4, 10, 30, 25.00),
-(5, 11, 60, 5.00),
-(6, 12, 200, 7.50),
+INSERT INTO itens_venda (id_venda, id_produto, quantidade, preco_unitario) VALUES 
+(1, 1, 100, 4.50),
+(2, 2, 50, 6.00),
+(3, 3, 75, 8.50),
+(4, 4, 30, 25.00),
+(5, 5, 60, 5.00),
+(6, 6, 200, 7.50);
